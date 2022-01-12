@@ -6,7 +6,7 @@ package calculadora;
 
 /**
  *
- * @author lucas
+ * @author Lucas Pimentel Ferreira
  */
 public class Calculadora {
 
@@ -14,7 +14,11 @@ public class Calculadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Metodo que ira chamar os outros
+        Operacoes obj = new Operacoes();
+        obj.menu();
+        //Classe Operacoes
+        //Classe Entrada
     }
     
 }
