@@ -4,14 +4,32 @@
  */
 package calculadora;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Lucas Pimentel Ferreira
  */
 public class Entrada {
+
+    /**
+     * @return the operador
+     */
+    public String getOperador() {
+        return operador;
+    }
+
+    /**
+     * @param operador the operador to set
+     */
+    public void setOperador(String operador) {
+        this.operador = operador;
+    }
+
     private String e1;
     private String e2;
-    private String e3;
+    private String s_res;
+    private String operador;
     private double num1;
     private double num2;
     private double result;
@@ -47,15 +65,15 @@ public class Entrada {
     /**
      * @return the e3
      */
-    public String getE3() {
-        return e3;
+    public String getS_res() {
+        return s_res;
     }
 
     /**
      * @param e3 the e3 to set
      */
-    public void setE3(String e3) {
-        this.e3 = e3;
+    public void setS_res(String s_res) {
+        this.s_res = s_res;
     }
 
     /**
@@ -100,4 +118,35 @@ public class Entrada {
         this.result = result;
     }
     
+    public void  entrada1(){
+        System.out.println("Digite o primeiro número: ");
+        Scanner ent1 = new Scanner(System.in);
+        e1 = ent1.nextLine();
+        try{
+            Double.parseDouble(e1);
+            num1 = Double.parseDouble(e1);
+            setNum1(num1);
+        }
+        catch(NumberFormatException e){
+                System.out.println("Digite um número valido");
+                entrada1();
+        }
+    }
+    
+    public void  entrada2(){
+        System.out.println("Digite o segundo número: ");
+        Scanner ent2 = new Scanner(System.in);
+        e2 = ent2.nextLine();
+        try{
+            Double.parseDouble(e2);
+            num2 = Double.parseDouble(e2);
+            setNum2(num2);
+        }
+        catch(NumberFormatException e){
+                System.out.println("Digite um número valido");
+                entrada2();
+        }
+    }
 }
+    
+

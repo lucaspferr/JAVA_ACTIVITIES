@@ -33,26 +33,34 @@ public class Operacoes extends Entrada{
         switch(info2){
             case "A": case "a":
                 System.out.println("Adicao");
+                setOperador("+");
                 break;
             case "S": case"s":
                 System.out.println("Subtracao");
+                setOperador("-");
                 break;
             case "M": case"m":
                 System.out.println("Multiplicacao");
+                setOperador("*");
                 break;
             case "D": case "d":
                 System.out.println("Divisao");
+                setOperador("/");
                 break;
             case "E": case "e":
                 System.out.println("Exponenciacao");
+                setOperador("^");
                 break;
             case "R": case "r":
                 System.out.println("Raiz");
+                setOperador("v");
                 break;
             default:
+                setOperador("");
                 retorno=false;
                 break;
         }
+        if(retorno==true) operacao();
         if(retorno==false) menu();
     }
     
@@ -60,12 +68,36 @@ public class Operacoes extends Entrada{
         if(verif_dados==false){
             System.out.println("        Nada ainda informado       ");
         }
+        else{
+            System.out.println("     "+getS_res());
+        }
     }
     
     public void resultado(){
         if(verif_dados==false){
             System.out.println("        Nada ainda informado       ");
         }
+        else{
+            System.out.println("     Resultado: "+getResult());
+        }
         
+    }
+    
+    public void operacao(){
+        //Pegar entrada 1 e fazer teste
+        entrada1();
+        //Pegar entrada 2 e fazer teste
+        entrada2();
+        //Montar operacao
+        if(getOperador().equals("+")) setResult(getNum1()+getNum2());
+        if(getOperador().equals("-")) setResult(getNum1()-getNum2());
+        if(getOperador().equals("*")) setResult(getNum1()*getNum2());
+        if(getOperador().equals("/")) setResult(getNum1()/getNum2());
+        if(getOperador().equals("^")) setResult(Math.pow(getNum1(),getNum2()));
+        //Salvar operacao como string e mostrar em calculo
+        setS_res(getNum1()+" "+getOperador()+" "+getNum2()+" = "+getResult());
+        //Resultado da operacao mostrar em resultado
+        verif_dados=true;
+        menu();
     }
 }
