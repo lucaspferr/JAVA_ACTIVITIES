@@ -94,8 +94,12 @@ public class Operacoes extends Entrada{
         if(getOperador().equals("*")) setResult(getNum1()*getNum2());
         if(getOperador().equals("/")) setResult(getNum1()/getNum2());
         if(getOperador().equals("^")) setResult(Math.pow(getNum1(),getNum2()));
+        if(getOperador().equals("v")) setResult(Math.pow(getNum1(),(1/getNum2())));
         //Salvar operacao como string e mostrar em calculo
-        setS_res(getNum1()+" "+getOperador()+" "+getNum2()+" = "+getResult());
+        if(getOperador().equals("v")){
+            setS_res("Indice: "+getNum2()+"\r\n     Radicando: "+getNum1() + "\r\n     Resultado: "+getResult());
+        }
+        else setS_res(getNum1()+" "+getOperador()+" "+getNum2()+" = "+getResult());
         //Resultado da operacao mostrar em resultado
         verif_dados=true;
         menu();
