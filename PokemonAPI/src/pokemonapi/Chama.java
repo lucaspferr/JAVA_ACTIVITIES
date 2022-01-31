@@ -56,6 +56,7 @@ public class Chama {
         }
         catch(MalformedURLException e){}
         catch(IOException e){}
+        finally{ connection.disconnect();}
         
     }
 }
