@@ -53,6 +53,8 @@ public class Chama {
                 reader.close();
             }
             System.out.println(responseContent.toString());
+            String poketeste = responseContent.toString();
+            
         }
         catch(MalformedURLException e){}
         catch(IOException e){}
