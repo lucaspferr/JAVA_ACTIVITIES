@@ -15,18 +15,18 @@ import java.net.URL;
  *
  * @author lucas
  */
-public class Chama {
+public class Chama extends BuscaPoke {
     
     private HttpURLConnection connection;
     
     
     public void pokechama(){
-        
+        busca();
         BufferedReader reader;
         String  line;
         StringBuffer responseContent = new StringBuffer();
         try{
-            URL url = new URL("https://pokeapi.co/api/v2/berry/1");
+            URL url = new URL("https://pokeapi.co/api/v2/pokemon/"+getNomepoke()+"/");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("User-Agent", "foi");
             //Setup de pedido
@@ -44,6 +44,7 @@ public class Chama {
                     responseContent.append(line);
                 }
                 reader.close();
+                pokechama();
             }
             else{
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
