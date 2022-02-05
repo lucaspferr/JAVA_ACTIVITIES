@@ -18,9 +18,11 @@ public class BuscaPoke {
     }
     
     public void busca(){
+        String nomep = "";
         Scanner buscap = new Scanner(System.in);
         System.out.println("Digite o nome do Pokemon");
-        setNomepoke(buscap.nextLine());
+        nomep = buscap.nextLine();
+        setNomepoke(nomep.toLowerCase());
         
         
     }
@@ -29,6 +31,7 @@ public class BuscaPoke {
      * @return the nomepoke
      */
     public String getNomepoke() {
+        //nomepoke=nomepoke.substring(0,1).toUpperCase() + nomepoke.substring(1).toLowerCase();
         return nomepoke;
     }
 

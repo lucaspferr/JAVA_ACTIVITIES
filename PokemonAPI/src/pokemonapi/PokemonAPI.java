@@ -14,7 +14,7 @@ public class PokemonAPI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Call the class responsible for the connection with the API
         Chama chama1 = new Chama();
         chama1.pokechama();
     }
