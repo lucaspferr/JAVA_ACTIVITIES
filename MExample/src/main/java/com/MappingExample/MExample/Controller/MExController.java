@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.*;
+
 @RestController
 public class MExController {
 
@@ -23,6 +25,7 @@ public class MExController {
     }
     @GetMapping("/t3")
     public String ExtAPI(){
+        Map<Integer, String> map = new HashMap<Integer, String>();
         String uri = "https://jsonplaceholder.typicode.com/todos/1";
         RestTemplate exta = new RestTemplate();
         String result = exta.getForObject(uri, String.class);
