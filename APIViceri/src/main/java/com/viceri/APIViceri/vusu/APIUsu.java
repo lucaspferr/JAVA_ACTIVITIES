@@ -1,7 +1,7 @@
 package com.viceri.APIViceri.vusu;
 
 import com.sun.istack.NotNull;
-import lombok.*;
+
 
 import javax.persistence.*;
 

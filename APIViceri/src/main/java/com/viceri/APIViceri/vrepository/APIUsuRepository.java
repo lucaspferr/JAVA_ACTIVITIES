@@ -13,4 +13,9 @@ public interface APIUsuRepository extends JpaRepository<APIUsu, Long> {
 
     @Query("SELECT s FROM APIUsu s WHERE s.email =?1")
     Optional<APIUsu> findAPIUsuByEmail(String email);
+
+    @Query("SELECT a FROM APIUsu a WHERE a.id =?1")
+    Optional<APIUsu> findById(Long id);
+
+
 }

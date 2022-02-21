@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "viceri/usuario")
@@ -22,6 +23,9 @@ public class APIUsuController {
     public List<APIUsu> getAPIUsuarios(){
         return apiUsuService.getAPIUsuarios();
     }
+
+    @GetMapping(path = "{id}")
+    public Optional<APIUsu> VoltaUm(Long id){return apiUsuService.findById(id);}
 
     @PostMapping
     public void regUsuar(@RequestBody APIUsu apiUsu){
@@ -41,4 +45,6 @@ public class APIUsuController {
             @RequestParam(required = false) String senha){
         apiUsuService.updateUsu(Usuarioid, nome, email, senha);
     }
+
+
 }

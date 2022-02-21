@@ -4,6 +4,7 @@ import com.viceri.APIViceri.vrepository.APIUsuRepository;
 import com.viceri.APIViceri.vusu.APIUsu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -63,4 +64,11 @@ public class APIUsuService {
             apiUsu.setSenha(senha);
         }
     }
+
+
+    public Optional <APIUsu> findById(Long id) {
+        return apiUsuRepository.findById(id);
+    }
+
+
 }
