@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class APIClientController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public APIClient salver(@RequestBody APIClient apiClient){
+    public APIClient salver(@Valid @RequestBody APIClient apiClient){
         return apiClientService.salvar(apiClient);
     }
 
@@ -56,6 +57,7 @@ public class APIClientController {
         apiClientService.buscarporID(id)
                 .map(apiClientBase -> {
                     modelMapper.map(apiClient, apiClientBase);
+                    apiClientService.salvar(apiClientBase);
                     return Void.TYPE;
                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado"));
     }
