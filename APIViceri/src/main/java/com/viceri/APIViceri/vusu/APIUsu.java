@@ -4,14 +4,17 @@ import com.sun.istack.NotNull;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
-@Table
+@Table(name = "apiUsu")
 public class APIUsu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_do_usu")
     private Long id;
 
     @NotNull
@@ -22,6 +25,9 @@ public class APIUsu {
 
     @NotNull
     private String senha;
+
+    @OneToMany(mappedBy = "apiUsu")
+    private Set<APITarefa> apiTarefas = new HashSet<>();
 
     public APIUsu() {
     }

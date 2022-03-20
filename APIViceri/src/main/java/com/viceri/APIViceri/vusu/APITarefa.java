@@ -6,15 +6,15 @@ import javax.persistence.*;
 
 
 @Entity
-@Table
+@Table(name = "apiTarefa")
 public class APITarefa {
 
 
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Tid;
 
     @NotNull
     private Long id_usuario;
@@ -28,11 +28,15 @@ public class APITarefa {
     @NotNull
     private String prioridade;
 
+    @ManyToOne
+    @JoinColumn(name="id_do_usu")
+    private APIUsu apiUsu;
+
     public APITarefa() {
     }
 
-    public APITarefa(Long id, Long id_usuario, String tarefa, String desctarefa, String prioridade) {
-        this.id = id;
+    public APITarefa(Long Tid, Long id_usuario, String tarefa, String desctarefa, String prioridade) {
+        this.Tid = Tid;
         this.id_usuario = id_usuario;
         this.tarefa = tarefa;
         this.desctarefa = desctarefa;
@@ -46,13 +50,9 @@ public class APITarefa {
         this.prioridade = prioridade;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getTid() {return Tid;}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setTid(Long Tid) {this.Tid = Tid;}
 
     public Long getId_usuario() {
         return id_usuario;

@@ -31,19 +31,19 @@ public class APITarefaService {
 
     }
 
-    public void deletTarefa(Long Tarefaid) {
-        boolean exists = apiTarefaRepository.existsById(Tarefaid);
+    public void deletTarefa(Long Tid) {
+        boolean exists = apiTarefaRepository.existsById(Tid);
         if(!exists){
-            throw new IllegalStateException("ID "+ Tarefaid +" nao existente.");
+            throw new IllegalStateException("ID "+ Tid +" nao existente.");
         }
-        apiTarefaRepository.deleteById(Tarefaid);
+        apiTarefaRepository.deleteById(Tid);
     }
 
 
     @Transactional
-    public void updateTarefa(Long Tarefaid, String tarefa, String desctarefa, String prioridade) {
-        APITarefa apiTarefa = apiTarefaRepository.findById(Tarefaid)
-                .orElseThrow(() -> new IllegalStateException("ID "+Tarefaid+" nao existente."));
+    public void updateTarefa(Long Tid, String tarefa, String desctarefa, String prioridade) {
+        APITarefa apiTarefa = apiTarefaRepository.findById(Tid)
+                .orElseThrow(() -> new IllegalStateException("ID "+Tid+" nao existente."));
         if(tarefa != null && tarefa.length() > 0 && !Objects.equals(apiTarefa.getTarefa(), tarefa)){
             apiTarefa.setTarefa(tarefa);
         }
@@ -56,7 +56,7 @@ public class APITarefaService {
     }
 
 
-    public Optional <APITarefa> findById(Long id) {
-        return apiTarefaRepository.findById(id);
+    public Optional <APITarefa> findById(Long Tid) {
+        return apiTarefaRepository.findById(Tid);
     }
 }

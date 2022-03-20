@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface APITarefaRepository extends JpaRepository<APITarefa, Long> {
 
 
-    @Query("SELECT a FROM APIUsu a WHERE a.id =?1")
-    Optional<APITarefa> findById(Long id);
+    @Query("SELECT a FROM APITarefa a WHERE a.Tid =?1")
+    Optional<APITarefa> findById(Long Tid);
 }
